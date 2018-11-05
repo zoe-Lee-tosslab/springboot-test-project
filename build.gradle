@@ -31,7 +31,7 @@ repositories {
 }
 
 dependencies {
-    compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-aws', version: '2.0.1.RELEASE'
+    //compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-aws', version: '2.0.1.RELEASE'
 
     compile('ch.qos.logback:logback-access')
     compile('org.projectlombok:lombok')
@@ -49,8 +49,8 @@ dependencies {
     //compile group: 'net.sf.ehcache', name: 'ehcache', version: '2.10.5'
 
     //Aws SQS
-    compile group: 'org.springframework.cloud', name: 'spring-cloud-aws-messaging', version: '2.0.1.RELEASE'
-    compile group: 'org.springframework.cloud', name: 'spring-cloud-aws-autoconfigure', version: '2.0.1.RELEASE'
+    //compile group: 'org.springframework.cloud', name: 'spring-cloud-aws-messaging', version: '2.0.1.RELEASE'
+    //compile group: 'org.springframework.cloud', name: 'spring-cloud-aws-autoconfigure', version: '2.0.1.RELEASE'
 
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }
