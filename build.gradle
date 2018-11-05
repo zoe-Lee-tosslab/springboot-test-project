@@ -1,0 +1,56 @@
+buildscript {
+    ext {
+        springBootVersion = '2.0.6.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+jar {
+    baseName = 'springboot-test-project'
+    version = '0.0.1-SNAPSHOT'
+    from('./.ebextensions') {
+        into '.ebextensions'
+    }
+}
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-aws', version: '2.0.1.RELEASE'
+
+    compile('ch.qos.logback:logback-access')
+    compile('org.projectlombok:lombok')
+
+    compile('org.springframework.boot:spring-boot-devtools')
+    //compile('org.springframework.boot:spring-boot-starter-batch')
+    //compile('org.springframework.boot:spring-boot-starter-data-jpa')
+    // health check, monitoring, metrics
+    compile('org.springframework.boot:spring-boot-starter-actuator')
+    compile('org.springframework.boot:spring-boot-starter-web')
+    //compile('org.springframework.boot:spring-boot-starter-cache')
+    compile("org.flywaydb:flyway-core")
+
+    //enCache
+    //compile group: 'net.sf.ehcache', name: 'ehcache', version: '2.10.5'
+
+    //Aws SQS
+    compile group: 'org.springframework.cloud', name: 'spring-cloud-aws-messaging', version: '2.0.1.RELEASE'
+    compile group: 'org.springframework.cloud', name: 'spring-cloud-aws-autoconfigure', version: '2.0.1.RELEASE'
+
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+}
